@@ -1,0 +1,36 @@
+html,body{
+    min-height: 100%;
+}
+
+body{
+    text-align: center;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#wrapper{
+    width: 960px;
+    min-height: 500px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    /* background-color: #fff; */
+}
+
+#sub-wrapper{
+    width: 100%;
+    margin-bottom: 90px;
+    margin-left: 70px;
+}
+
+#start{
+    background-color: rgba(0, 0, 0, .6);
+    height: 50px;
+    width: 150px;
+    color: white;
+    border: 3px solid grey;
+}
