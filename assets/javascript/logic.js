@@ -72,7 +72,7 @@ var quiz = {
 
     countdown: function() {
         quiz.counter--;
-        $("counter-number").text(quiz.counter);
+        $("#counter-number").text(quiz.counter);
         if(quiz.counter === 0) {
             console.log("TIMES UP!");
             quiz.timeUp();
@@ -115,11 +115,83 @@ var quiz = {
         }
     },
 
-    
+    results: function() {
+        clearInterval(timer);
+
+        quizDisplay.html("<h2>All done, here's how you did!</h2>");
+
+        $("#counter-number").text(quiz.counter);
+
+        quizDisplay.append("<h3>Correct Answers: " + quiz.correct + "</h3>");
+        quizDisplay.append("<h3>Incorrect Answers: " + quiz.incorrect + "</h3>");
+        quizDisplay.append("<h3>Unanswered: " + (questions.length - (quiz.incorrect + quiz.correct)) + "</h3>");
+        quizDisplay.append("<br><button id='start-over'>Try Again?</button>")
+    },
+
+    clicked: function(e) {
+        clearInterval(timer);
+        if ($(e.target).attr("data-name") === questions[this.currentQuestion].correctAnswer) {
+            this.answeredCorrect();
+        }
+        else {
+            this.answeredIncorrect();
+        }
+    },
+
+    answeredIncorrect: function() {
+        
+        quiz.incorrect++;
+
+        clearInterval(timer);
+
+        quizDisplay.html("<h2>Nope!</h2>");
+        quizDisplay.append("<h3>The Correct Answer was: " + questions[quiz.currentQuestion].correctAnswer + "</h3>");
+        quizDisplay.append("<img src='" + questions[quiz.currentQuestion].image + "' />");
+
+        if (quiz.currentQuestion === questions.length - 1) {
+            setTimeout(quiz.results, 3 * 1000);
+        }
+        else {
+            setTimeout(quiz.nextQuestion, 3 * 1000);
+        }
+    },
+
+    answeredCorrect: function() {
+        clearInterval(timer);
+
+        quiz.correct++;
+
+        quizDisplay.html("<h2>Correct!</h2>");
+        quizDisplay.append("<img src='" + questions[quiz.currentQuestion].image + "' />");
+
+        if (quiz.currentQuestion === questions.length - 1) {
+            setTimeout(quiz.results, 3 * 1000);
+        }
+        else {
+            setTimeout(quiz.nextQuestion, 3 * 1000);
+        }
+    },
+
+    reset: function() {
+        this.currentQuestion = 0;
+        this.counter = countStart;
+        this.correct = 0;
+        this.incorrect = 0;
+        this.loadQuestion();
+    }
 };
 // MAIN PROCESS
 // ==============================================================
+$(document).on("click", "#start-over", function(){
+    quiz.reset();
+})
+
+$(document).on("click", ".answer-button", function(e) {
+    quiz.clicked(e);
+});
+
 $(document).on("click", "#start", function() {
-    $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+    $("#body").css("background-image", "url(assets/images/background2.jpg)");
+    $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'></span> Seconds</h2>");
     quiz.loadQuestion();
 });
