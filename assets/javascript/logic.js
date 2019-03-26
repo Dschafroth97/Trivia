@@ -105,7 +105,7 @@ var quiz = {
 
         quizDisplay.html("<h2>Out of Time!</h2>");
         quizDisplay.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
-        quizDisplay.append("<img src='" + questions[this.currentQuestion].image + "' />");
+        quizDisplay.append("<img class='gif' src='" + questions[this.currentQuestion].image + "' />");
 
         if (quiz.currentQuestion === questions.length - 1) {
             setTimeout(quiz.results, 3 * 1000);
@@ -146,7 +146,7 @@ var quiz = {
 
         quizDisplay.html("<h2>Nope!</h2>");
         quizDisplay.append("<h3>The Correct Answer was: " + questions[quiz.currentQuestion].correctAnswer + "</h3>");
-        quizDisplay.append("<img src='" + questions[quiz.currentQuestion].image + "' />");
+        quizDisplay.append("<img class='gif' src='" + questions[quiz.currentQuestion].image + "' />");
 
         if (quiz.currentQuestion === questions.length - 1) {
             setTimeout(quiz.results, 3 * 1000);
@@ -162,7 +162,7 @@ var quiz = {
         quiz.correct++;
 
         quizDisplay.html("<h2>Correct!</h2>");
-        quizDisplay.append("<img src='" + questions[quiz.currentQuestion].image + "' />");
+        quizDisplay.append("<img class='gif' src='" + questions[quiz.currentQuestion].image + "' />");
 
         if (quiz.currentQuestion === questions.length - 1) {
             setTimeout(quiz.results, 3 * 1000);

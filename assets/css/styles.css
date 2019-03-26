@@ -15,7 +15,7 @@ body{
     min-height: 500px;
     box-sizing: border-box;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 200px;
     display: flex;
     align-items: center;
     /* background-color: #fff; */
@@ -23,11 +23,15 @@ body{
 
 #sub-wrapper{
     width: 100%;
-    margin-bottom: 90px;
+    margin-bottom: 300px;
     margin-left: 70px;
     /* background-color: #fff; */
 }
 
+.gif {
+    max-width: 300px;
+    max-height: 500px;
+}
 #start{
     background-color: rgba(0, 0, 0, .6);
     height: 50px;
