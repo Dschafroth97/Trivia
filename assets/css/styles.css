@@ -12,10 +12,10 @@ body{
 
 #wrapper{
     width: 960px;
-    min-height: 500px;
+    height: 300px;
     box-sizing: border-box;
     margin: auto;
-    margin-top: 200px;
+    /* margin-top: 100px; */
     display: flex;
     align-items: center;
     /* background-color: #fff; */
@@ -23,15 +23,11 @@ body{
 
 #sub-wrapper{
     width: 100%;
-    margin-bottom: 300px;
+    margin-top: 320px;
     margin-left: 70px;
-    /* background-color: #fff; */
+    /* background-color: #000; */
 }
 
-.gif {
-    max-width: 300px;
-    max-height: 500px;
-}
 #start{
     background-color: rgba(0, 0, 0, .6);
     height: 50px;

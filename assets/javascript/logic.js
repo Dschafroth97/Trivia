@@ -19,7 +19,7 @@ var questions = [{
     image: "assets/images/luffyFruit.gif"
 }, {
     question: "Who was the King of The Pirates?",
-    answers: ["Big Mom", "Blackbeard", "Gol D. Roger", "White Beard"],
+    answers: ["Gol D. Roger", "Blackbeard", "Big Mom", "White Beard"],
     correctAnswer: "Gol D. Roger",
     image: "assets/images/roger.gif"
 }, {
@@ -29,7 +29,7 @@ var questions = [{
     image: "assets/images/rayleigh.gif"
 }, {
     question: "What is Luffy's Birthday?",
-    answers: ["July 6th", "April 20th", "May 5th", "February 30th"],
+    answers: ["July 6th", "April 20th", "February 30th", "May 5th"],
     correctAnswer: "May 5th",
     image: "assets/images/luffyKid.gif"
 }, {
@@ -118,9 +118,9 @@ var quiz = {
     results: function() {
         clearInterval(timer);
 
-        quizDisplay.html("<h2>All done, here's how you did!</h2>");
+        $("h2").empty();
 
-        $("#counter-number").text(quiz.counter);
+        quizDisplay.html("<h2>All done, here's how you did!</h2>");
 
         quizDisplay.append("<h3>Correct Answers: " + quiz.correct + "</h3>");
         quizDisplay.append("<h3>Incorrect Answers: " + quiz.incorrect + "</h3>");
