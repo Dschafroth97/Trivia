@@ -128,9 +128,9 @@ var quiz = {
         quizDisplay.append("<br><button id='start-over'>Try Again?</button>")
     },
 
-    clicked: function(e) {
+    clicked: function(a) {
         clearInterval(timer);
-        if ($(e.target).attr("data-name") === questions[this.currentQuestion].correctAnswer) {
+        if ($(a.target).attr("data-name") === questions[this.currentQuestion].correctAnswer) {
             this.answeredCorrect();
         }
         else {
@@ -186,8 +186,8 @@ $(document).on("click", "#start-over", function(){
     quiz.reset();
 })
 
-$(document).on("click", ".answer-button", function(e) {
-    quiz.clicked(e);
+$(document).on("click", ".answer-button", function(a) {
+    quiz.clicked(a);
 });
 
 $(document).on("click", "#start", function() {
