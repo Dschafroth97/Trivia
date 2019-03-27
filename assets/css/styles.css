@@ -57,32 +57,4 @@ h3 {
 button:hover {
     border: 2px solid black;
 }
-
-@media only screen and (min-width: 400px){
-
-    body {
-        background-position: center;
-        background-size: cover;
-    }
-
-    h2 {
-       font-size: 60px;
-       font-weight: bold;
-    }
-
-    h3 {
-        font-size: 35px;
-    }
-
-    button {
-        width: 40%;
-        height: 20%;
-        font-size: 45px;
-    }
-
-    #start {
-        height: 100px;
-        width: 250px;
-        margin-top: 600px;
-    }
 }
