@@ -81,6 +81,8 @@ var quiz = {
 
     loadQuestion: function() {
 
+        $("#counter-number").text(quiz.counter);
+
         timer = setInterval(quiz.countdown, 1000);
 
         quizDisplay.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
@@ -101,8 +103,6 @@ var quiz = {
     timeUp: function() {
         clearInterval(timer);
 
-        $("#counter-number").html(quiz.counter);
-
         quizDisplay.html("<h2>Out of Time!</h2>");
         quizDisplay.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
         quizDisplay.append("<img class='gif' src='" + questions[this.currentQuestion].image + "' />");
@@ -118,7 +118,7 @@ var quiz = {
     results: function() {
         clearInterval(timer);
 
-        $("h2").empty();
+        $("h2").toggle();
 
         quizDisplay.html("<h2>All done, here's how you did!</h2>");
 
@@ -183,6 +183,7 @@ var quiz = {
 // MAIN PROCESS
 // ==============================================================
 $(document).on("click", "#start-over", function(){
+    $("h2").toggle();
     quiz.reset();
 })
 
